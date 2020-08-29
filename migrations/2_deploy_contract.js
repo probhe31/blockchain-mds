@@ -1,13 +1,13 @@
-const GradientToken = artifacts.require("GradientToken");
+const CatToken = artifacts.require("CatToken");
 const util = require("util");
 const fs = require("fs");
 const path = require("path");
 const writeFile = util.promisify(fs.writeFile);
 
 module.exports = async function(deployer) {
-  const gradientToken = await deployer.deploy(GradientToken);
+  const catToken = await deployer.deploy(CatToken);
   const addresses = {
-    tokenAddress: GradientToken.address
+    tokenAddress: CatToken.address
   };
 
   await writeFile(

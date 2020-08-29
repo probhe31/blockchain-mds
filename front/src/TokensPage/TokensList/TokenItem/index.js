@@ -9,7 +9,7 @@ const TokenItem = ({ token, onClick }) => {
   return (
     <div className="TokenItem" onClick={onClick}>
       <div className="TokenItem-image_wrapper">
-        <TokenImage outer={token[0]} inner={token[1]} />
+        <TokenImage nameCat={token[0]} dnaCat={token[1]} />
       </div>
       <div className="TokenItem-label">{`${token[0]} – ${token[1]}`}</div>
     </div>

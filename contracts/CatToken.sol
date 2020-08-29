@@ -3,26 +3,27 @@ pragma solidity ^0.4.17;
 import 'zeppelin-solidity/contracts/token/ERC721/ERC721Token.sol';
 import 'zeppelin-solidity/contracts/ownership/Ownable.sol';
 
-contract GradientToken is ERC721Token, Ownable {
-  string public constant name = "GradientToken";
+contract CatToken is ERC721Token, Ownable {
+  string public constant name = "CatToken";
   string public constant symbol = "GRAD";
 
   uint dnaDigits = 16;
   uint dnaModulus = 10 ** dnaDigits;
 
 
-  struct Gradient {
-    string outer;
-    string inner;
+  struct Cat {
+    string nameCat;
+    string dnaCat;
   }
 
-  Gradient[] public gradients;
+  
+  Cat[] public cats;
 
-  function getGradient( uint _gradientId ) public view returns(string outer, string inner){
-    Gradient memory _grad = gradients[_gradientId];
+  function getCat( uint _catId ) public view returns(string nameCat, string dnaCat){
+    Cat memory _cat = cats[_catId];
 
-    outer = _grad.outer;
-    inner = _grad.inner;
+    nameCat = _cat.nameCat;
+    dnaCat = _cat.dnaCat;
   }
 
   function uint2str(uint _i) internal pure returns (string memory _uintAsString) {
@@ -44,12 +45,12 @@ contract GradientToken is ERC721Token, Ownable {
         return string(bstr);
   }
 
-  function mint(string _outer, string _inner) public payable onlyOwner{
+  function mint(string _nameCat, string _dnaCat) public payable onlyOwner{
         
-    Gradient memory _gradient = Gradient({ outer: _outer, inner: uint2str(_generateRandomDna(_outer)) });
-    uint _gradientId = gradients.push(_gradient) - 1;
+    Cat memory _cat = Cat({ nameCat: _nameCat, dnaCat: uint2str(_generateRandomDna(_nameCat)) });
+    uint _catId = cats.push(_cat) - 1;
 
-    _mint(msg.sender, _gradientId);
+    _mint(msg.sender, _catId);
   }
 
   function _generateRandomDna(string _str) private view returns (uint) {

@@ -3,14 +3,14 @@ import PropTypes from "prop-types";
 
 const IMAGE_SIZE = 100;
 
-const TokenImage = ({ outer, inner, size }) => {
-  const gradId = `${outer}${inner}`.replace(/#/g, "");
+const TokenImage = ({ nameCat, dnaCat, size }) => {
+  const gradId = `${nameCat}${dnaCat}`.replace(/#/g, "");
   const imageSize = size || IMAGE_SIZE;
 
   //const colors = ["#add5d2","#ecd1eb","#f7bc56","#fcfc95", "#f4a792", "#b1b1be"];
-  const body = inner.substring(0, 2) % 6 + 1;
-  const eye = inner.substring(2, 4) % 4 + 1;
-  const mouth = inner.substring(2, 4) % 5 + 1;
+  const body = dnaCat.substring(0, 2) % 6 + 1;
+  const eye = dnaCat.substring(2, 4) % 4 + 1;
+  const mouth = dnaCat.substring(2, 4) % 5 + 1;
   
   
   const bodyImg = "bodies/bodyk"+body+".svg"
@@ -42,8 +42,8 @@ const TokenImage = ({ outer, inner, size }) => {
 };
 
 TokenImage.propTypes = {
-  outer: PropTypes.string.isRequired,
-  inner: PropTypes.string.isRequired,
+  nameCat: PropTypes.string.isRequired,
+  dnaCat: PropTypes.string.isRequired,
   size: PropTypes.number
 };
 

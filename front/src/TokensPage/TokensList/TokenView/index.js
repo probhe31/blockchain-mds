@@ -6,7 +6,7 @@ import "./TokenView.css";
 const TokenView = ({ token }) => (
   <div>
     <div className="TokenView-image_wrapper">
-      <TokenImage size={200} outer={token[0]} inner={token[1]} />
+      <TokenImage size={200} nameCat={token[0]} dnaCat={token[1]} />
     </div>
     <div className="TokenView-label">{`${token[0]} – ${token[1]}`}</div>
   </div>

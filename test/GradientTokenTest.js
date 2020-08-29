@@ -10,7 +10,7 @@ contract("Gradient token", accounts => {
   });
 
   describe("mint", () => {
-    it("creates token with specified outer and inner colors", async () => {
+    it("creates token with specified nameCat and inner colors", async () => {
       let instance = await GradientToken.deployed();
       let owner = await instance.owner();
 

@@ -1,6 +1,6 @@
 import contract from "truffle-contract";
 import getProvider from "utils/getProvider";
-import GradientTokenArtifact from "utils/contracts/GradientToken.json";
+import GradientTokenArtifact from "utils/contracts/CatToken.json";
 import addresses from "../addresses.json";
 
 const { tokenAddress } = addresses;

@@ -25,7 +25,7 @@ class GradientTokenStore {
     const tokens = await gradientTokenInstance.tokensOf(this.owner);
     const gradients = await Promise.all(
       tokens.map(async token => {
-        return gradientTokenInstance.getGradient(token);
+        return gradientTokenInstance.getCat(token);
       })
     );
     this.setIsLoading(false);
@@ -52,6 +52,8 @@ class GradientTokenStore {
       gas: 170000
     });
     this.appendToken({ gradient, index: this.tokenIndex++ });
+
+    this.fetchTokens();
   };
 
   setTokens(tokens) {
